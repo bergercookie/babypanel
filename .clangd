@@ -1,0 +1,8 @@
+Diagnostics:
+  UnusedIncludes: Strict
+  Suppress: "builtin_definition"
+
+CompileFlags:
+  Remove: ["-mtext-section-literals", "-mlongcalls", "-free", "-fipa-pta"]
+  Add: []
+# vim: ft=yaml

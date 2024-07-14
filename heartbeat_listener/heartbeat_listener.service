@@ -1,0 +1,18 @@
+# Systemd service that should run after the network is up and should run the
+# heartbeat_listener script.
+# Note that the heartbeat_listener.sh and heartbeat_listener.py scripts should
+# be installed beforehand under /usr/local/bin.
+[Unit]
+Description=Babypanel Heartbeat Listener
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/heartbeat_listener.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+
